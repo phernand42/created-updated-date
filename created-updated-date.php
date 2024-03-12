@@ -10,8 +10,8 @@ Author: Paul H
 function cud_add_dcterms_meta_tags() {
   if (is_single() || is_page()) {
     $post_id = get_queried_object_id();
-    $post_created = get_the_date('Y-m-d', $post_id);
-    $post_modified = get_the_modified_date('Y-m-d', $post_id);
+    $post_created = get_post_time('c', true, $post_id);
+    $post_modified = get_post_modified_time('c', true, $post_id);
 
     echo '<meta property="dcterms.created" content="' . esc_attr($post_created) . '">' . "\n";
     echo '<meta property="dcterms.modified" content="' . esc_attr($post_modified) . '">' . "\n";
